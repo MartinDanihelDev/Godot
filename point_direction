@@ -1,0 +1,11 @@
+func point_direction(vector_a, vector_b):
+#	This custom function in Godot provides a way to determine the direction in degrees between two vectors, 
+#	similar to the point_direction function in GameMaker Language (GML). The result will be returned in the range of 0-360, 
+#	allowing the user to easily determine the direction between the two vectors. This function can be useful for tasks such as aiming, 
+#	movement, and collision detection in Godot, and can help users who are transitioning from GameMaker to Godot.
+	var radians = atan2(vector_b.y - vector_a.y, vector_b.x - vector_a.x);
+	if radians < 0:
+		radians += 2 * PI;
+	var degrees = radians * 180 / PI;
+	degrees = abs(degrees - 360);
+	return degrees;
